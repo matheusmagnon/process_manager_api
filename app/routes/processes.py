@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from app.services.process_service import ProcessService
 from app.schemas.process_schema import ProcessCreate, ProcessUpdate, ProcessResponse
+from app.models.process_model import Process
 from app.database import get_db
 from sqlalchemy.ext.asyncio import AsyncSession
 
