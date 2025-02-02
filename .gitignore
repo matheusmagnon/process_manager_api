@@ -1,0 +1,55 @@
+# Ignorar arquivos do Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Ignorar arquivos do ambiente virtual
+venv/
+env/
+.venv/
+.env/
+ENV/
+
+# Ignorar arquivos do IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignorar arquivos do Docker
+**/docker-compose.override.yml
+**/docker-compose.prod.yml
+
+# Ignorar arquivos de log
+logs/
+*.log
+
+# Ignorar arquivos de banco de dados local
+*.db
+*.sqlite3
+
+# Ignorar arquivos de cache
+.cache/
+.pytest_cache/
+
+# Ignorar arquivos de build
+dist/
+build/
+*.egg-info/
+
+# Ignorar arquivos de configuração local
+.env
+.env.local
+.env.dev
+.env.prod
+
+# Ignorar arquivos do sistema
+.DS_Store
+Thumbs.db
