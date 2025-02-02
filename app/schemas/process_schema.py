@@ -1,9 +1,10 @@
 from datetime import datetime
+from typing import Optional
 from pydantic import BaseModel
 
 class ProcessBase(BaseModel):
     name: str
-    description: str | None = None
+    description: Optional[str] = None
     status: bool = True
 
 class ProcessCreate(ProcessBase):
@@ -15,7 +16,7 @@ class ProcessUpdate(ProcessBase):
 class ProcessResponse(ProcessBase):
     id: int
     created_at: datetime
-    updated_at: datetime | None
-
+    updated_at: Optional[datetime] = None  
+    
     class Config:
         orm_mode = True
