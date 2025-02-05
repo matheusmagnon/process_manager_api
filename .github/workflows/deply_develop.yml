@@ -1,0 +1,47 @@
+name: Deploy Develop
+
+on:
+  push:
+    branches: [ "develop" ]
+
+env:
+  PYTHON_VERSION: 3.12.3
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login no DockerHub
+        run: echo "${{ secrets.DOCKER_KEY }}" | docker login -u matheusmagnon --password-stdin
+
+      - name: Copiar .env para o diretório
+        run: cp .env.example .env
+
+      - name: Build Docker images via Docker Compose
+        run: docker compose build
+
+      - name: Tag da imagem do API para o ambiente de develop
+        run: |
+          docker tag matheusmagnon/process_manager_api:latest process_manager_api:develop
+
+      - name: Push da imagem API para o DockerHub
+        run: docker push process_manager_api:develop
+
+      - name: Deploy remoto via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEV_IP }}
+          username: ${{ secrets.DEV_USER }}
+          key: ${{ secrets.DEV_SSH_KEY }}
+          port: ${{ secrets.DEV_PORT }}
+          # Caso seja necessário, você pode incluir o password também:
+          # password: ${{ secrets.DEV_PASSWORD }}
+          script: |
+            cd ~/projetos/process_manager_api
+            docker rm -f process_manager_api || true
+            docker pull  matheusmagnon/process_manager_api:develop
+            docker system prune -af
