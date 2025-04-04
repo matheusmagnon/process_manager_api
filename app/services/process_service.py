@@ -14,10 +14,10 @@ class ProcessService:
     @staticmethod
     async def get_all_processes(db: AsyncSession) -> List[Process]:
         """Retrieve all processes from the database.
-        
+
         Args:
             db: AsyncSession for database operations.
-            
+
         Returns:
             List[Process]: List of all processes.
         """
@@ -27,11 +27,11 @@ class ProcessService:
     @staticmethod
     async def create_process(db: AsyncSession, process_data: dict) -> Process:
         """Create a new process in the database.
-        
+
         Args:
             db: AsyncSession for database operations.
             process_data: Dictionary containing process attributes.
-            
+
         Returns:
             Process: The newly created process.
         """
@@ -46,12 +46,12 @@ class ProcessService:
         db: AsyncSession, process_id: int, process_data: dict
     ) -> Process:
         """Update an existing process in the database.
-        
+
         Args:
             db: AsyncSession for database operations.
             process_id: ID of the process to update.
             process_data: Dictionary containing updated process attributes.
-            
+
         Returns:
             Process: The updated process.
         """
@@ -66,7 +66,7 @@ class ProcessService:
     @staticmethod
     async def delete_process(db: AsyncSession, process_id: int) -> None:
         """Delete a process from the database.
-        
+
         Args:
             db: AsyncSession for database operations.
             process_id: ID of the process to delete.

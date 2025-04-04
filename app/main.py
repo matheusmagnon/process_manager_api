@@ -29,7 +29,7 @@ app.add_middleware(
 @app.on_event("startup")
 async def startup():
     """Initialize application services on startup.
-    
+
     Creates database tables if they don't exist.
     """
     async with engine.begin() as conn:
