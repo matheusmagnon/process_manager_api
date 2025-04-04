@@ -18,7 +18,6 @@ env/
 ENV/
 
 # Ignorar arquivos do IDE
-.vscode/
 .idea/
 *.swp
 *.swo
