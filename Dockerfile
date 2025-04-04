@@ -18,4 +18,4 @@ COPY . .
 # Garantir que scripts usem o PATH correto
 ENV PATH=/root/.local/bin:$PATH
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--reload-dir", "/app"]
