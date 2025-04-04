@@ -4,8 +4,6 @@ API routes for managing processes.
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
-
-# First-party imports
 from app.services.process_service import ProcessService
 from app.schemas.process_schema import ProcessCreate, ProcessUpdate, ProcessResponse
 from app.models.process_model import Process

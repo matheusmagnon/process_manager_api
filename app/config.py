@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     postgres_password: str
     postgres_db: str
 
-    class Config: # pylint: disable=too-few-public-methods
+    class Config:
         """Pydantic configuration for settings loading."""
         env_file = ".env"
         env_file_encoding = "utf-8"
