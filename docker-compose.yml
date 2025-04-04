@@ -3,6 +3,8 @@ version: '3.8'
 services:
   api:
     build: .
+    image:  matheusmagnon/process_manager_api:latest
+    container_name: process_manager_api
     volumes:
       - ./app:/app/app
     env_file:
@@ -27,6 +29,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    restart: unless-stopped
 
 volumes:
   postgres_data:
