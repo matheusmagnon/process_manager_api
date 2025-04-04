@@ -24,6 +24,6 @@ class Process(Base):
     name = Column(String(100), nullable=False)
     description = Column(String(500))
     status = Column(Boolean, default=True)
-    created_at = Column(DateTime, server_default=func.now)
+    created_at = Column(DateTime, server_default=func.now())
     updated_at = Column(DateTime, onupdate=func.now)
     
