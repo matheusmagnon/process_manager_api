@@ -71,6 +71,7 @@ class ProcessService:
             db: AsyncSession for database operations.
             process_id: ID of the process to delete.
         """
+
         process = await db.get(Process, process_id)
         if process:
             await db.delete(process)
