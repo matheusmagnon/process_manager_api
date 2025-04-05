@@ -55,6 +55,7 @@ class ProcessService:
         Returns:
             Process: The updated process.
         """
+
         process = await db.get(Process, process_id)
         if process:
             for key, value in process_data.items():
